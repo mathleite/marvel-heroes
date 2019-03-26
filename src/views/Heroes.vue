@@ -1,6 +1,6 @@
 <template lang="pug">
   div.c-container
-    h1.o-title {{ $t('heroes') }}
+    h1.o-title {{ $t('heroes_grid') }}
     heroes-grid
 
 </template>
@@ -17,18 +17,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  $color-black: black
-  $color-blue: blue
-  $color-red: red
+  @import '../sass/variables'
 
   .c-container
+    font-family: monospace
     .o-title
       text-align: center
       font-size: 50px
       color: $color-black
       border-bottom: 2px solid black
       text-transform: uppercase
-    .o-title:hover
-      color: $color-blue
-      border-color: $color-red
 </style>

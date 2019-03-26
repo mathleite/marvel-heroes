@@ -14,8 +14,8 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/heroes',
-      name: 'heroes',
+      path: '/heroes-grid',
+      name: 'heroes-grid',
       component: () => import('./views/Heroes.vue'),
     },
   ],

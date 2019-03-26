@@ -1,54 +1,50 @@
 <template lang="pug">
   div.c-container
-    //- div.c-grid
-    //-   div.o-partition
-    //-     div.o-profile-pic-radius()
-    v-layout.o-layout(row align-center justify-center)
-      v-flex.a(xs12 md6 lg3)
-        div.o-profile-pic-radius
+    v-layout.o-layout
+        v-flex.card(xs12 md6 lg3)
+          img.o-profile-pic-radius(src="https://f.i.uol.com.br/fotografia/2018/09/25/15379219725baad3b4c7343_1537921972_4x3_md.jpg")
+    div.btn
+      router-link.text-decoration-none(:to="{ name: 'home' }")
+        v-btn.o-btn-back voltar
 </template>
 
 <script>
 export default {
   name: 'HeroesGrid',
-  data: () => ({
-    image: 'https://s3.amazonaws.com/coursetro/course_images/24_thumb.jpg',
-  }),
+  data: () => ({}),
 };
 </script>
 
 <style lang="sass" scoped>
-  $color-black: black
-  $color-blue: blue
-  $color-red: red
+  @import '../sass/variables'
+  @import '../sass/global'
 
   .c-container
-    width: 900px
+    width: 100%
+    height: 0 auto
+    font-family: monospac
 
     .o-layout
-      margin-top: 200px
-    .a, .b, .c, .d
-      border: 1px solid black
+      margin-top: 50px
+
+    .card
+      border-radius: 10px
       height: 300px
       margin: 2px
+      box-shadow: 0 10px 20px rgba(0,0,0,0.09), 0 6px 6px rgba(0,0,0,0.23)
+      display: flex
+      flex-direction: column
+      align-items: center
 
       .o-profile-pic-radius
           width: 100px
           height: 100px
-          border: 1px solid black
           border-radius: 100%
-    .c-grid
-      margin-top: 10px
-      margin-bottom: 5px
-      width: 700px
-      height: 100px
-      border: 1px solid black
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 
-      .o-partition
-        display: flex
-        justify-content: center
-        align-items: center
-        width: 100px
-        height: 100px
-        border-right: 1px solid black
+    .btn
+      font-weight: bold
+      display: flex
+      align-items: center
+      justify-content: flex-end
 </style>
