@@ -23,7 +23,6 @@ export default {
 
   .o-container
     .o-app-name
-      margin-top: 10px
       text-align: center
       border-bottom: 3px solid $color-black
       height: 55px
