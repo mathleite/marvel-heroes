@@ -4,14 +4,26 @@
         v-flex.card(xs12 md6 lg3)
           img.o-profile-pic-radius(src="https://f.i.uol.com.br/fotografia/2018/09/25/15379219725baad3b4c7343_1537921972_4x3_md.jpg")
     div.btn
-      router-link.text-decoration-none(:to="{ name: 'home' }")
-        v-btn.o-btn-back voltar
+      the-button(
+        :text="$t('button.back')"
+        :route-name="homeRoute"
+      )
 </template>
 
 <script>
+import TheButton from './TheButton.vue';
+import { getRouteByName } from '../utils/constants';
+
 export default {
   name: 'HeroesGrid',
-  data: () => ({}),
+  components: {
+    TheButton,
+  },
+  computed: {
+    homeRoute() {
+      return getRouteByName.HOME;
+    },
+  },
 };
 </script>
 
@@ -37,10 +49,10 @@ export default {
       align-items: center
 
       .o-profile-pic-radius
-          width: 100px
-          height: 100px
-          border-radius: 100%
-          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+        width: 100px
+        height: 100px
+        border-radius: 100%
+        box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 
     .btn
       font-weight: bold

@@ -1,6 +1,6 @@
 <template lang="pug">
   div.c-container
-    h1.o-title {{ $t('heroes_grid') }}
+    h1.o-title {{ $t('app.heroes_grid') }}
     heroes-grid
 
 </template>

@@ -1,21 +1,37 @@
 <template lang="pug">
   div.o-container
-    h1.o-app-name {{ $t('application_name') }}
-    div.rola
-      p.c-info {{ $t('info_application') }}
-      div.o-button
-        router-link(:to="{ name: 'heroes-grid' }")
-          v-btn.o-btn-lets-go {{ $t('buttons.lets_go') }}
+    h1.o-app-name {{ $t('app.name') }}
+    div.o-flex-container
+      p.c-info {{ $t('info.application') }}
+      the-button(
+        :text="$t('button.go_to_grid')"
+        :route-name="heroesGridRoute"
+      )
 </template>
 
 <script>
+import { getRouteByName } from '../utils/constants';
+import TheButton from '../components/TheButton.vue';
+
 export default {
   name: 'Home',
+  components: {
+    TheButton,
+  },
+  computed: {
+    heroesGridRoute() {
+      return getRouteByName.HEROES_GRID;
+    },
+  },
+  created() {
+    console.log(getRouteByName, 'porra')
+  },
 };
 </script>
 
 <style lang="sass" scoped>
   @import '../sass/variables'
+  @import '../sass/global'
 
   .o-container
     font-family: monospace
@@ -32,11 +48,12 @@ export default {
       text-transform: uppercase
       font-weight: bold
 
-    .rola
+    .o-flex-container
       display: flex
       justify-content: center
       align-items: center
       flex-direction: column
+
       .c-info
         text-align: center
         width: 400px
