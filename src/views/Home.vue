@@ -1,8 +1,8 @@
 <template lang="pug">
   div.o-container
-    h1.o-app-name {{ $t('app.name') }}
+    the-title-text(:title="$t('app.name')")
     div.o-flex-container
-      p.c-info {{ $t('info.application') }}
+      the-paragraph.c-info(:paragraphText="$t('info.application')")
       the-button(
         :text="$t('button.go_to_grid')"
         :route-name="heroesGridRoute"
@@ -10,21 +10,23 @@
 </template>
 
 <script>
-import { getRouteByName } from '../utils/constants';
+import { routeName } from '../utils/constants';
+
 import TheButton from '../components/TheButton.vue';
+import TheParagraph from '../components/TheParagraph.vue';
+import TheTitleText from '../components/TheTitleText.vue';
 
 export default {
   name: 'Home',
   components: {
     TheButton,
+    TheParagraph,
+    TheTitleText,
   },
   computed: {
     heroesGridRoute() {
-      return getRouteByName.HEROES_GRID;
+      return routeName.HEROES_GRID;
     },
-  },
-  created() {
-    console.log(getRouteByName, 'porra')
   },
 };
 </script>
@@ -39,14 +41,6 @@ export default {
 
     &:first-child
       flex-direction: column
-
-    .o-app-name
-      text-align: center
-      border-bottom: 3px solid $color-black
-      height: 55px
-      font-size: 50px
-      text-transform: uppercase
-      font-weight: bold
 
     .o-flex-container
       display: flex

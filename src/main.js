@@ -7,7 +7,7 @@ import store from './store';
 
 Vue.config.productionTip = false;
 
-const messages = require('./translations/pt_BR.js');
+const messages = require('./lang/pt_BR.js');
 
 Vue.use(VueI18n);
 const i18n = new VueI18n({

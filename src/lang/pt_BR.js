@@ -8,7 +8,7 @@ module.exports = {
       application: 'Projeto criado com o intuito de mostrar os Heróis da Marvel utilizando sua API e seus respectivos detalhes.',
     },
     button: {
-      go_to_grid: 'Ir à Grid',
+      go_to_grid: 'Ir para a Grid',
       back: 'Voltar',
     },
   },

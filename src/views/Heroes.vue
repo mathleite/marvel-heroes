@@ -1,30 +1,46 @@
 <template lang="pug">
   div.c-container
-    h1.o-title {{ $t('app.heroes_grid') }}
+    the-title-text(:title="$t('app.heroes_grid')")
     heroes-grid
-
+    div.btn
+      the-button(
+        :text="$t('button.back')"
+        :route-name="homeRoute"
+      )
 </template>
 
 <script>
+import { routeName } from '../utils/constants';
+
 import HeroesGrid from '../components/HeroesGrid.vue';
+import TheButton from '../components/TheButton.vue';
+import TheTitleText from '../components/TheTitleText.vue';
 
 export default {
   name: 'Heroes',
   components: {
     HeroesGrid,
+    TheButton,
+    TheTitleText,
+  },
+  computed: {
+    homeRoute() {
+      return routeName.HOME;
+    },
   },
 };
 </script>
 
 <style lang="sass" scoped>
   @import '../sass/variables'
+  @import '../sass/global'
 
   .c-container
     font-family: monospace
-    .o-title
-      text-align: center
-      font-size: 50px
-      color: $color-black
-      border-bottom: 2px solid black
-      text-transform: uppercase
+
+    .btn
+      font-weight: bold
+      display: flex
+      align-items: center
+      justify-content: flex-end
 </style>

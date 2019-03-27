@@ -2,34 +2,22 @@
   div.c-container
     v-layout.o-layout
         v-flex.card(xs12 md6 lg3)
-          img.o-profile-pic-radius(src="https://f.i.uol.com.br/fotografia/2018/09/25/15379219725baad3b4c7343_1537921972_4x3_md.jpg")
-    div.btn
-      the-button(
-        :text="$t('button.back')"
-        :route-name="homeRoute"
-      )
+          img.o-profile-pic-radius
 </template>
 
 <script>
 import TheButton from './TheButton.vue';
-import { getRouteByName } from '../utils/constants';
 
 export default {
   name: 'HeroesGrid',
   components: {
     TheButton,
   },
-  computed: {
-    homeRoute() {
-      return getRouteByName.HOME;
-    },
-  },
 };
 </script>
 
 <style lang="sass" scoped>
   @import '../sass/variables'
-  @import '../sass/global'
 
   .c-container
     width: 100%
@@ -53,10 +41,4 @@ export default {
         height: 100px
         border-radius: 100%
         box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
-
-    .btn
-      font-weight: bold
-      display: flex
-      align-items: center
-      justify-content: flex-end
 </style>

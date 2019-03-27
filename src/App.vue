@@ -26,7 +26,7 @@ export default {
       height: 0 auto
 
       .background
-        background: url('http://www.wallpapermaiden.com/wallpaper/14155/download/1980x1080/iron-man-marvel-comics.jpg') no-repeat center center fixed
+        background: url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
         background-size: cover
         filter: grayscale(80%)
         position: absolute
