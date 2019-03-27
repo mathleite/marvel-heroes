@@ -36,8 +36,6 @@ export default {
   @import '../sass/global'
 
   .c-container
-    font-family: monospace
-
     .btn
       font-weight: bold
       display: flex

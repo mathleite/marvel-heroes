@@ -36,7 +36,6 @@ export default {
   @import '../sass/global'
 
   .o-container
-    font-family: monospace
     display: flex
 
     &:first-child

@@ -24,6 +24,7 @@ export default {
 
     .o-main
       height: 0 auto
+      font-family: monospace
 
       .background
         background: url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed

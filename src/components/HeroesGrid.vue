@@ -22,7 +22,6 @@ export default {
   .c-container
     width: 100%
     height: 0 auto
-    font-family: monospac
 
     .o-layout
       margin-top: 50px
