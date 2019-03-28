@@ -1,10 +1,11 @@
 <template lang="pug">
-  div#app
-    div.o-main
-      div.background
-      div.segregate
-        div.card
-          router-view
+  v-app.app
+    .app__background
+    v-content
+      .app__segregate
+        v-container
+          transition(name="slide-y-transition" mode="out-in")
+            router-view
 </template>
 
 <script>
@@ -16,38 +17,25 @@ export default {
 <style lang="sass" scoped>
   @import './sass/variables'
 
-  #app
-    display: flex
-    background-repeat: repeat
-    width: 100%
-    height: 0 auto
+  .app
+    font-family: monospace
 
-    .o-main
-      height: 0 auto
-      font-family: monospace
+    &__background
+      background: red url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
+      background-size: cover
+      filter: grayscale(80%)
+      position: absolute
+      left: 0
+      right: 0
+      top: 0
+      bottom: 0
 
-      .background
-        background: url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
-        background-size: cover
-        filter: grayscale(80%)
-        position: absolute
-        z-index: -1
-        width: 100vw
-        height: 100vh
-
-      .segregate
-        width: 100vw
-        height: 100vh
-        display: flex
-        justify-content: center
-        align-items: center
-        .card
-          z-index: 1
-          background: $color-white
-          width: 50%
-          padding: 24px
-          border-radius: 16px
-          box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)
-          transition: all 0.3s cubic-bezier(.25,.8,.25,1)
-
+    &__segregate
+      width: 100vw
+      height: 100vh
+      display: flex
+      justify-content: center
+      align-items: center
+      position: relative
+      z-index: 2
 </style>

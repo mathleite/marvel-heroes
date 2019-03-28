@@ -1,20 +1,22 @@
 <template lang="pug">
-  div.o-container
-    the-title-text(:title="$t('app.name')")
-    div.o-flex-container
-      the-paragraph.c-info(:paragraphText="$t('info.application')")
-      the-button(
-        :text="$t('button.go_to_grid')"
-        :route-name="heroesGridRoute"
-      )
+  v-card
+    v-card-text
+      div.o-container
+        the-title-text(:title="$t('app.name')")
+        div.o-flex-container
+          the-paragraph.c-info(:paragraphText="$t('info.application')")
+          the-button(
+            :text="$t('button.go_to_grid')"
+            route-name="heroes"
+          )
 </template>
 
 <script>
-import { routeName } from '../utils/constants';
+import { routeName } from '@/utils/constants';
 
-import TheButton from '../components/TheButton.vue';
-import TheParagraph from '../components/TheParagraph.vue';
-import TheTitleText from '../components/TheTitleText.vue';
+import TheButton from '@/components/TheButton.vue';
+import TheParagraph from '@/components/TheParagraph.vue';
+import TheTitleText from '@/components/TheTitleText.vue';
 
 export default {
   name: 'Home',
@@ -32,9 +34,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  @import '../sass/variables'
-  @import '../sass/global'
-
   .o-container
     display: flex
 

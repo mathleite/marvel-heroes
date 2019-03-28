@@ -4,6 +4,7 @@ import VueI18n from 'vue-i18n';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import '@/sass/global.sass';
 
 Vue.config.productionTip = false;
 

@@ -1,17 +1,39 @@
 <template lang="pug">
   div.c-container
-    v-layout.o-layout
-        v-flex.card(xs12 md6 lg3)
-          img.o-profile-pic-radius
+    v-layout(row align-center justify-center)
+      v-flex(
+        xs12 md6 lg3
+        v-for="hero in heroes"
+        :key="hero.id"
+        )
+        v-card
+          v-card-title {{ hero.name }}
+          v-card-text
+            img(:src="hero.picture" width="100%")
 </template>
 
 <script>
+import HeroesService from '@/services/HeroesService';
 import TheButton from './TheButton.vue';
 
 export default {
   name: 'HeroesGrid',
   components: {
     TheButton,
+  },
+  data: () => ({
+    heroes: [],
+  }),
+  methods: {
+    listHeroes() {
+      HeroesService.list()
+        .then(({ data }) => {
+          this.heroes = data;
+        });
+    },
+  },
+  created() {
+    this.listHeroes();
   },
 };
 </script>

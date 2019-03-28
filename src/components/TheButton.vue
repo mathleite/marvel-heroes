@@ -1,6 +1,5 @@
 <template lang="pug">
-  router-link.text-decoration-none(:to="{ name: routeName }")
-    v-btn.o-btn-back {{ text }}
+  v-btn.o-btn-back(:to="{ name: routeName }") {{ text }}
 </template>
 
 <script>
@@ -18,7 +17,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass" scoped>
-  @import '../sass/variables'
-</style>
