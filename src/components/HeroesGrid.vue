@@ -1,43 +1,14 @@
 <template lang="pug">
-  //- div.c-container
-  //-   v-layout(row align-center justify-center)
-  //-     v-flex(
-  //-       xs12 md6 lg3
-  //-       v-for="hero in heroes"
-  //-       :key="hero.id"
-  //-       )
-  //-       v-card
-  //-         v-card-title {{ hero.name }}
-  //-         v-card-text
-  //-           img(:src="hero.picture" width="100%")
   div.grid
-    figure
-      img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/7.jpg', alt='')
+    figure(
+      v-for="hero in heroes"
+      :key="hero.id"
+      )
+      img(:src="hero.picture")
       figcaption
         div
           div
-            h3 Iron Man
-    figure
-      img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/8.jpg', alt='')
-      figcaption
-        div
-          div
-            h3 Thor
-    figure
-      img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/9.jpg', alt='')
-      figcaption
-        div
-          div
-            h3 Captain America
-    figure
-      img(src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/10.jpg', alt='')
-      figcaption
-        div
-          div
-            h3 Black Widow
-    .copyright 2017 Marvel
-
-
+            h3 {{ hero.name }}
 </template>
 
 <script>

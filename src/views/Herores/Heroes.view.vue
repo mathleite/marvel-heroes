@@ -36,6 +36,7 @@ export default {
 <style lang="sass" scoped>
   .c-container
     .btn
+      margin-top: 20px
       font-weight: bold
       display: flex
       align-items: center
