@@ -1,10 +1,10 @@
 <template lang="pug">
   v-card
     v-card-text
-      div.c-container
+      div.container
         the-title-text(:title="$t('app.heroes_grid')")
         heroes-grid
-        div.btn
+        div.button-rigth
           the-button(
             :text="$t('button.back')"
             :route-name="homeRoute"
@@ -34,9 +34,10 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-  .c-container
-    .btn
-      margin-top: 20px
+  .container
+    display: flex
+    flex-direction: column
+    .button-rigth
       font-weight: bold
       display: flex
       align-items: center

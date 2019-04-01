@@ -3,22 +3,26 @@
     {
       "id": 1,
       "name": "Iron Man",
-      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/7.jpg"
+      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/7.jpg",
+      "description": "Descrição do Hero aqui"
     },
     {
       "id": 2,
       "name": "Thor",
-      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/8.jpg"
+      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/8.jpg",
+      "description": "Descrição do Hero aqui"
     },
     {
       "id": 3,
       "name": "Captain America",
-      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/9.jpg"
+      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/9.jpg",
+      "description": "Descrição do Hero aqui"
     },
     {
       "id": 4,
       "name": "Black Widow",
-      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/10.jpg"
+      "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/10.jpg",
+      "description": "Descrição do Hero aqui"
     }
   ]
 }

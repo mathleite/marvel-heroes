@@ -21,7 +21,7 @@ export default {
     font-family: monospace
 
     &__background
-      background: red url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
+      background: url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
       background-size: cover
       filter: grayscale(80%)
       position: absolute
@@ -32,7 +32,7 @@ export default {
 
     &__segregate
       width: 100vw
-      height: 100vh
+      height: 0 auto
       display: flex
       justify-content: center
       align-items: center
