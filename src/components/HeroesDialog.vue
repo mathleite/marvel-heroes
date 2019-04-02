@@ -6,10 +6,14 @@
       ) {{ $t('app.details')}}
       v-card.card(class="text-xs-center")
         h1 {{ heroesData.name }}
-        v-card-text.card__text(class="text-xs-left")
+        v-card-text.card__text(class="text-xs-center ")
           .card__description
-            v-span {{ $t('app.description') }}
-            v-span {{ heroesData.description }}
+            v-span.__description-bold {{ $t('app.description') }}
+            v-span.__description-hero {{ heroesData.description }}
+        .segregate
+        v-card-text.card__text(class="text-xs-center")
+          .card__description
+            v-span.__description-bold {{ $t('app.hero_comics') }}
 </template>
 
 <script>
@@ -20,16 +24,18 @@ export default {
       type: Object,
       required: true,
     },
-  },   
+  },
 };
 </script>
 
-<style lang="sass" scoped>
-  .container
-    & .card
-      background-color: red !important
-      & .__text
-        & .__description
-            display: flex
-            flex-direction: column
+<style lang="sass">
+  .card
+    .card__description
+      display: flex
+      flex-direction: column
+      & .__description-bold
+        font-weight: bold
+      & .__description-hero
+        
 </style>
+

@@ -4,25 +4,25 @@
       "id": 1,
       "name": "Iron Man",
       "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/7.jpg",
-      "description": "Descrição do Hero aqui"
+      "description": "Na versão original, durante a guerra do Vietnã, o inventor e empresário Tony Stark foi vítima de uma explosão de granada. Stark sobreviveu à explosão mas estilhaços do explosivo se alojaram próximo ao seu coração, ameaçando sua vida. Ele foi capturado e levado até o líder Wong Chu. Restavam apenas alguns dias de vida para o americano, e Wong Chu o forçou a criar uma poderosa arma.Tony não criou uma arma e sim algo que o mantivesse vivo e permitisse derrotar os captores. Preso com ele estava outro gênio, o professor Ho Yinsen. Stark revelou seu plano ao professor e Yinsen o ajudou. Quando os homens de Wong Chu se aproximaram, o velho professor pegou uma metralhadora, mas acabou sendo fuzilado, mas garantiu tempo suficiente para que Stark se recuperasse e se acostumasse a usar a armadura criada. O Homem de Ferro enfrentou os soldados e os derrotou. Sua armadura resistia aos disparos contra ele. Wong Chu tentou fugir e o Homem de Ferro incendiou o galpão de munições fazendo com que a explosão o matasse. Os prisioneiros foram libertados. Desde então Stark desenvolveu novas versões de sua armadura e adotou as cores vermelho e dourado como as padrões da armadura, com algumas pequenas alterações esporádicas como preto, prateado e, mais recentemente, branco."
     },
     {
       "id": 2,
       "name": "Thor",
       "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/8.jpg",
-      "description": "Descrição do Hero aqui"
+      "description": "Filho de Odin, o deus supremo de Asgard (lar dos deuses nórdicos) e de Jord, a deusa da Terra (também chamada de Midgard ou Gaia), Thor Odinson é o príncipe de um outro mundo existente numa dimensão acima de Midgard, a Terra. Nesse mundo existem outros diversos reinos, como por exemplo, a terra dos gigantes de gelo (Jotunheim e Valhala, o lugar para onde vão os espíritos dos guerreiros que morrem em combate). Trata-se justamente de uma adaptação da mitologia nórdica, traduzida no Universo Marvel como apenas mais uma dimensão paralela. Os nove mundos de Asgard são ligados pela Ponte do Arco-Íris (Bifrost), que é guardada por Heimdall, o eterno guardião da ponte. Thor possui um irmão adotivo chamado Loki, o traiçoeiro deus das trapaças e mentiras. Devido à sua má índole e à inveja que sente por Thor, por ser este o filho mais querido de Odin, Loki está sempre a tramar a morte do irmão e a posse de Asgard."
     },
     {
       "id": 3,
       "name": "Captain America",
       "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/9.jpg",
-      "description": "Descrição do Hero aqui"
+      "description": "Nascido em 4 de Julho de 1920, filho de um casal pobre de imigrantes irlandeses, Sarah e Joseph Rogers (mortos em sua adolescência), Steve Rogers era um rapaz com problemas de saúde que desejava, de qualquer forma, participar dos esforços estadunidenses para vencer a Segunda Guerra Mundial. Ao ter seu alistamento recusado por sua saúde debilitada, ele deixa claro estar disposto a fazer qualquer coisa para ajudar na guerra. Esse 'qualquer coisa' é tão literal que ele se torna parte de um experimento para a criação de soldados superficiais a alguém: o 'projeto supersoldado', que consistia em um soro especial e criado pelo Dr. Josef Reinstein."
     },
     {
       "id": 4,
       "name": "Black Widow",
       "picture": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3794/10.jpg",
-      "description": "Descrição do Hero aqui"
+      "description": "A Viúva Negra foi designada para auxiliar Boris Turgenov no assassinato do Professor Anton Vanko por desertar seu país, infiltrando-se nas Indústrias Stark na América. Tony Stark, o Homem de Ferro original, frustou continuamente seus planos contra as Indústrias Stark. Romanova mais tarde conheceu o Gavião Arqueiro e o colocou contra o Homem de Ferro, e mais tarde ajudou o Gavião a lutar contra o Homem de Ferro. Infelizmente, a associação do Gavião Arqueiro com espiões da Rússia o rotularam como um criminoso no inicio de sua carreira. A Viúva Negra e o Gavião então enfrentaram o super-herói novato Homem-Aranha. Eles mais tarde retornaram o seu foco a Tony Stark, enfrentando o Homem de Ferro mais duas vezes - a primeira sendo uma tentativa de invadir a fábrica de munições de Tony Stark."
     }
   ]
 }

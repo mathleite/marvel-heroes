@@ -23,7 +23,7 @@ export default {
     &__background
       background: url('./assets/images/iron-man-marvel-comics.jpg') no-repeat center center fixed
       background-size: cover
-      filter: grayscale(80%)
+      filter: grayscale(20%)
       position: absolute
       left: 0
       right: 0
@@ -31,8 +31,8 @@ export default {
       bottom: 0
 
     &__segregate
-      width: 100vw
-      height: 0 auto
+      width: 100%
+      height: 100%
       display: flex
       justify-content: center
       align-items: center
