@@ -2,19 +2,18 @@
   v-flex
     div.grid
       figure(
-        v-for="hero in heroes"
+        v-for="hero in heroesData"
         :key="hero.id"
         )
         v-img.grid__image(:src="hero.picture")
         figcaption
           div
             div
-              h3 {{ hero.name }}
+              h4 {{ hero.name }}
               heroes-dialog(:heroesData="hero")
 </template>
 
 <script>
-import HeroesService from '@/services/HeroesService';
 import HeroesDialog from '@/components/HeroesDialog.vue';
 
 export default {
@@ -22,19 +21,11 @@ export default {
   components: {
     HeroesDialog,
   },
-  data: () => ({
-    heroes: [],
-  }),
-  methods: {
-    listHeroes() {
-      HeroesService.list()
-        .then(({ data }) => {
-          this.heroes = data;
-        });
+  props: {
+    heroesData: {
+      type: Array,
+      default: () => [],
     },
-  },
-  created() {
-    this.listHeroes();
   },
 };
 </script>
@@ -59,7 +50,6 @@ export default {
         background-color: gray
         width: 100%
         height: 0 auto
-        object-fit: cover
         transition: .2s
         will-change: transform
         flex-grow: 1
@@ -85,7 +75,7 @@ export default {
       z-index: 2
 
     figcaption
-      & h3
+      & h4
         color: #fdfdfd
         text-align: center
         font-size: 30px
@@ -114,9 +104,8 @@ export default {
     &:before
       clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%)
     &:after
-      height: 140%
-      background: rgba(237, 28, 36, 0.5)
-      clip-path: polygon(0% 15%, 100% 0%, 100% 100%, 0% 100%)
+      height: 100%
+      clip-path: polygon(0% 30%, 100% 0%, 100% 100%, 0% 100%)
     div
       margin: 0
       transition: .3s transform
@@ -128,11 +117,4 @@ export default {
       div
         transform: translateY(-100%)
         display: inline-block
-  a
-    text-decoration: none
-    outline: 0
-    &:visited, &:focus, &:active, &:link
-      text-decoration: none
-      outline: 0
-    transition: .2s ease-in-out
 </style>

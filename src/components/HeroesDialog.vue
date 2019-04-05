@@ -8,12 +8,12 @@
         h1 {{ heroesData.name }}
         v-card-text.card__text(class="text-xs-center ")
           .card__description
-            v-span.__description-bold {{ $t('app.description') }}
-            v-span.__description-hero {{ heroesData.description }}
+            span.__description-bold {{ $t('app.description') }}
+            span {{ heroesData.description }}
         .segregate
         v-card-text.card__text(class="text-xs-center")
           .card__description
-            v-span.__description-bold {{ $t('app.hero_comics') }}
+            span.__description-bold {{ $t('app.hero_comics') }}
 </template>
 
 <script>
@@ -35,7 +35,4 @@ export default {
       flex-direction: column
       & .__description-bold
         font-weight: bold
-      & .__description-hero
-        
 </style>
-

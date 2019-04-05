@@ -3,20 +3,20 @@
     v-card-text
       div.container
         the-title-text(:title="$t('app.heroes_grid')")
-        heroes-grid
+        heroes-grid(:heroesData="heroes")
         div.button-rigth
           the-button(
             :text="$t('button.back')"
-            :route-name="homeRoute"
+            route-name="home"
           )
 </template>
 
 <script>
-import { routeName } from '@/utils/constants';
-
 import HeroesGrid from '@/components/HeroesGrid.vue';
 import TheButton from '@/components/TheButton.vue';
 import TheTitleText from '@/components/TheTitleText.vue';
+
+import HeroesService from '@/services/HeroesService';
 
 export default {
   name: 'Heroes',
@@ -25,10 +25,19 @@ export default {
     TheButton,
     TheTitleText,
   },
-  computed: {
-    homeRoute() {
-      return routeName.HOME;
+  data: () => ({
+    heroes: [],
+  }),
+  methods: {
+    listHeroes() {
+      HeroesService.list()
+        .then(({ data }) => {
+          this.heroes = data;
+        });
     },
+  },
+  created() {
+    this.listHeroes();
   },
 };
 </script>

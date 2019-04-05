@@ -5,7 +5,7 @@ module.exports = {
       heroes_grid: 'Grid de Heróis',
       description: 'Descrição',
       details: 'Detalhes',
-      hero_comics: 'História em Quadrinhos do Herói',
+      hero_comics: 'Histórias em Quadrinhos do Herói',
       hero_comics_abbreviation: "HQs",
     },
     info: {

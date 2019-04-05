@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { routeName } from '@/utils/constants';
-
 import TheButton from '@/components/TheButton.vue';
 import TheParagraph from '@/components/TheParagraph.vue';
 import TheTitleText from '@/components/TheTitleText.vue';
@@ -24,11 +22,6 @@ export default {
     TheButton,
     TheParagraph,
     TheTitleText,
-  },
-  computed: {
-    heroesGridRoute() {
-      return routeName.HEROES_GRID;
-    },
   },
 };
 </script>
