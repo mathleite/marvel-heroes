@@ -1,28 +1,35 @@
 <template lang="pug">
-  .container
-    v-dialog.container__dialog
-      v-btn(
-        slot="activator"
-      ) {{ $t('app.details')}}
-      v-card.card(class="text-xs-center")
-        h1 {{ heroesData.name }}
-        v-card-text.card__text(class="text-xs-center ")
-          .card__description
-            span.__description-bold {{ $t('app.description') }}
-            span {{ heroesData.description }}
-        .segregate
-        v-card-text.card__text(class="text-xs-center")
-          .card__description
-            span.__description-bold {{ $t('app.hero_comics') }}
+  v-dialog.container__dialog(v-model="showDialog")
+    v-card.card(class="text-xs-center")
+      h1 {{ hero.name }}
+      v-card-text.card__text(class="text-xs-center ")
+        .card__description
+          span.__description-bold {{ $t('app.description') }}
+          span {{ hero.description }}
+      .segregate
+      v-card-text.card__text(class="text-xs-center")
+        .card__description
+          span.__description-bold {{ $t('app.hero_comics') }}
 </template>
 
 <script>
 export default {
   name: 'HeroesDialog',
   props: {
-    heroesData: {
+    hero: {
       type: Object,
       required: true,
+    },
+    value: Boolean,
+  },
+  computed: {
+    showDialog: {
+      set(value) {
+        this.$emit('input', value);
+      },
+      get() {
+        return this.value;
+      },
     },
   },
 };

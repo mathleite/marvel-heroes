@@ -1,31 +1,70 @@
 <template lang="pug">
-  v-flex
-    div.grid
-      figure(
-        v-for="hero in heroesData"
-        :key="hero.id"
-        )
-        v-img.grid__image(:src="hero.picture")
-        figcaption
-          div
-            div
-              h4 {{ hero.name }}
-              heroes-dialog(:heroesData="hero")
+  .heroes-grid
+    v-container(grid-list-lg)
+      v-layout(row align-start wrap)
+        v-flex(
+          xs12
+          sm6
+          lg3
+          v-for="hero in heroes"
+          :key="hero.id"
+          )
+          hero-item(
+            :hero="hero"
+            @show-hero-detail="showHeroDetail"
+            )
+    v-progress-linear(v-show="loading" :indeterminate="true")
+    heroes-dialog(v-model="showDetail" :hero="heroDetail")
+    v-pagination(
+      v-model="page"
+      :length="lastPage"
+      :disabled="loading"
+      @input="listHeroes"
+      )
 </template>
 
 <script>
+import HeroesService from '@/services/HeroesService';
 import HeroesDialog from '@/components/HeroesDialog.vue';
+import HeroItem from './HeroItem.vue';
 
 export default {
   name: 'HeroesGrid',
   components: {
+    HeroItem,
     HeroesDialog,
   },
-  props: {
-    heroesData: {
-      type: Array,
-      default: () => [],
+  data: () => ({
+    heroes: [],
+    page: 1,
+    offset: 0,
+    limit: 12,
+    lastPage: 1,
+    loading: false,
+    heroDetail: {},
+    showDetail: false,
+  }),
+  methods: {
+    listHeroes(page = 1) {
+      this.loading = true;
+      this.offset = this.limit * (page - 1);
+      HeroesService.list(this.offset, this.limit)
+        .then((data) => {
+          this.offset = data.offset;
+          this.limit = data.limit;
+          this.lastPage = Math.ceil(data.total / data.limit);
+          this.page = this.offset ? (this.offset / this.limit) + 1 : 1;
+          this.heroes = data.results;
+          this.loading = false;
+        });
     },
+    showHeroDetail(hero) {
+      this.heroDetail = hero;
+      this.showDetail = true;
+    },
+  },
+  created() {
+    this.listHeroes();
   },
 };
 </script>

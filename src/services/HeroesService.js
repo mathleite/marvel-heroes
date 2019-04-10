@@ -1,11 +1,14 @@
-import HeroesMock from '@/mocks/heroes.mock.json';
+import http from './HttpService';
 
 export default {
-  list() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(HeroesMock);
-      }, 1500);
+  list(offset, limit) {
+    return http.get('characters', {
+      params: {
+        offset,
+        limit,
+      },
+    }).then((response) => {
+      return response.data.data;
     });
   },
 };

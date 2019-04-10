@@ -2,7 +2,7 @@ module.exports = {
   pt_BR: {
     app: {
       name: 'My Heroes',
-      heroes_grid: 'Grid de Heróis',
+      heroes_grid: 'Marvel Heroes',
       description: 'Descrição',
       details: 'Detalhes',
       hero_comics: 'Histórias em Quadrinhos do Herói',
