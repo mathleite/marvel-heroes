@@ -1,20 +1,28 @@
 <template lang="pug">
-  v-dialog.container__dialog(v-model="showDialog")
+  v-dialog(v-model="showDialog")
     v-card.card(class="text-xs-center")
+      v-avatar.card__avatar(size="200")
+        v-img(:src="picture" aspect-radio="1")
       h1 {{ hero.name }}
-      v-card-text.card__text(class="text-xs-center ")
+      v-card-text(class="text-xs-center ")
         .card__description
-          span.__description-bold {{ $t('app.description') }}
+          h3.__description-bold {{ $t('app.description') }}
+          span(v-show="heroHasDescription") {{ $t('app.no_description') }}
           span {{ hero.description }}
-      .segregate
-      v-card-text.card__text(class="text-xs-center")
+      v-card-text(class="text-xs-center")
         .card__description
-          span.__description-bold {{ $t('app.hero_comics') }}
+          h3.__description-bold {{ $t('app.hero_comics') }}
+          heroes-comics-grid(:hero="hero")
 </template>
 
 <script>
+import HeroesComicsGrid from './HeroesComicsGrid.vue';
+
 export default {
   name: 'HeroesDialog',
+  components: {
+    HeroesComicsGrid,
+  },
   props: {
     hero: {
       type: Object,
@@ -23,6 +31,14 @@ export default {
     value: Boolean,
   },
   computed: {
+    heroHasDescription() {
+      const { description } = this.hero;
+      return description.length === 0;
+    },
+    picture() {
+      const { path, extension } = this.hero.thumbnail;
+      return `${path}.${extension}`;
+    },
     showDialog: {
       set(value) {
         this.$emit('input', value);
@@ -37,6 +53,8 @@ export default {
 
 <style lang="sass">
   .card
+    &__avatar
+      margin-top: 10px
     .card__description
       display: flex
       flex-direction: column

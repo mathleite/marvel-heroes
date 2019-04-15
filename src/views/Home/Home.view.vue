@@ -4,7 +4,7 @@
       div.o-container
         the-title-text(:title="$t('app.name')")
         div.o-flex-container
-          the-paragraph.c-info(:paragraphText="$t('info.application')")
+          p.c-info {{ $t('info.application') }}
           the-button(
             :text="$t('button.go_to_grid')"
             route-name="heroes"
@@ -13,14 +13,12 @@
 
 <script>
 import TheButton from '@/components/TheButton.vue';
-import TheParagraph from '@/components/TheParagraph.vue';
 import TheTitleText from '@/components/TheTitleText.vue';
 
 export default {
   name: 'Home',
   components: {
     TheButton,
-    TheParagraph,
     TheTitleText,
   },
 };

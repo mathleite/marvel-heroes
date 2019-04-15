@@ -3,17 +3,19 @@ module.exports = {
     app: {
       name: 'My Heroes',
       heroes_grid: 'Marvel Heroes',
-      description: 'Descrição',
-      details: 'Detalhes',
-      hero_comics: 'Histórias em Quadrinhos do Herói',
-      hero_comics_abbreviation: "HQs",
+      description: 'Description',
+      details: 'Hero Details',
+      hero_comics: 'Hero comics',
+      hero_comics_abbreviation: 'HQs',
+      no_description: 'This Hero has no description',
+      no_comics: 'This Hero has no comics',
     },
     info: {
-      application: 'Projeto criado com o intuito de mostrar os Heróis da Marvel utilizando sua API e seus respectivos detalhes.',
+      application: 'A project created with the intention of showing the resources developed during the mentoring.',
     },
     button: {
-      go_to_grid: 'Ir para a Grid',
-      back: 'Voltar',
+      go_to_grid: 'Back to Grid',
+      back: 'Back',
     },
   },
 };
