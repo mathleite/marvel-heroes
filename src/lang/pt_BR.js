@@ -14,7 +14,7 @@ module.exports = {
       application: 'A project created with the intention of showing the resources developed during the mentoring.',
     },
     button: {
-      go_to_grid: 'Back to Grid',
+      go_to_grid: 'Go to Grid',
       back: 'Back',
     },
   },
