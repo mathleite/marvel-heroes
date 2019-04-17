@@ -1,18 +1,28 @@
 <template lang="pug">
-  v-dialog(v-model="showDialog")
+  v-dialog(v-model="showDialog" scrollable)
     v-card.card(class="text-xs-center")
-      v-avatar.card__avatar(size="200")
-        v-img(:src="picture" aspect-radio="1")
-      h1 {{ hero.name }}
-      v-card-text(class="text-xs-center ")
-        .card__description
-          h3.__description-bold {{ $t('app.description') }}
-          span(v-show="heroHasDescription") {{ $t('app.no_description') }}
-          span {{ hero.description }}
-      v-card-text(class="text-xs-center")
-        .card__description
-          h3.__description-bold {{ $t('app.hero_comics') }}
-          heroes-comics-grid(:hero="hero")
+      v-toolbar(flat)
+        v-toolbar-title {{ hero.name }}
+        v-spacer
+        v-btn(icon)
+          v-icon close
+      v-divider
+      v-card-text
+        v-card(color="blue-grey darken-3" dark)
+          v-card-text
+            v-layout(column align-center)
+              v-avatar.card__avatar(size="200")
+                v-img(:src="picture" aspect-radio="1")
+              h1.mt-3 {{ hero.name }}
+        v-card-text.text-xs-center
+          v-layout(column)
+            h3.font-weight-bold {{ $t('app.description') }}
+            span(v-show="heroHasDescription") {{ $t('app.no_description') }}
+            span {{ hero.description }}
+        v-card-text.text-xs-center
+          v-layout(column)
+            h3.font-weight-bold {{ $t('app.hero_comics') }}
+            heroes-comics-grid(:hero="hero")
 </template>
 
 <script>
@@ -48,16 +58,10 @@ export default {
       },
     },
   },
+  methods: {
+    closeDialog() {
+      this.showDialog = false;
+    },
+  },
 };
 </script>
-
-<style lang="sass">
-  .card
-    &__avatar
-      margin-top: 10px
-    .card__description
-      display: flex
-      flex-direction: column
-      & .__description-bold
-        font-weight: bold
-</style>

@@ -8,14 +8,13 @@
     v-progress-linear(v-show="loading" :indeterminate="true")
     v-layout(row align-end wrap)
       v-flex(
-        xs8
-        sm5
-        lg2
+        xs12
+        sm6
+        lg3
         v-for="comic in comics"
         :key="comic.id"
-      )
+        )
         hero-comics(v-show="hasComics" :comic="comic")
-
 </template>
 
 <script>
@@ -44,11 +43,6 @@ export default {
   },
   created() {
     this.fetchHeroComics();
-  },
-  watch: {
-    hero() {
-      this.fetchHeroComics();
-    },
   },
   methods: {
     fetchHeroComics() {
