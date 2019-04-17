@@ -1,6 +1,17 @@
 <template lang="pug">
   v-card
     v-card-text
+      input(type="file" ref="input_file" id="teste" style="display: none;")
+      v-btn(
+        fab
+        dark
+        fixed
+        right
+        bottom
+        color="red"
+        @click="chooseFile"
+        )
+        v-icon attach_file
       div.container
         the-title-text(:title="$t('app.heroes_grid')")
         heroes-grid
@@ -22,6 +33,11 @@ export default {
     HeroesGrid,
     TheButton,
     TheTitleText,
+  },
+  methods: {
+    chooseFile() {
+      this.$refs.input_file.click();
+    },
   },
 };
 </script>

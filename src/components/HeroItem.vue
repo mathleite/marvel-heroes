@@ -1,6 +1,19 @@
 <template lang="pug">
-  v-card(hover @click="showHeroDetails")
-    v-img.hero__image(:src="picture" aspect-ratio="1")
+  v-card.hero-item(hover @click="showHeroDetails")
+    .hero-item__picture
+      v-img.hero__image(
+        :src="picture"
+        :lazy-src="picture"
+        aspect-ratio="1"
+        )
+        template(v-slot:placeholder)
+          v-layout(
+            fill-height
+            align-center
+            justify-center
+            ma-0
+            )
+            v-progress-circular(indeterminate color="red darken-3")
     v-card-text
       h4.text-no-wrap.text-truncate {{ hero.name }}
 </template>
@@ -24,3 +37,10 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+  .hero-item
+    &__image
+      max-height: 10px
+      overflow: hidden
+</style>

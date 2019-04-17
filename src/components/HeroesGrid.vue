@@ -14,7 +14,12 @@
             @show-hero-detail="showHeroDetails"
           )
     v-progress-linear(v-show="loading" :indeterminate="true")
-    heroes-dialog(v-model="showDetail" :hero="heroDetail")
+    heroes-dialog(
+      v-model="showDetail"
+      :hero="heroDetail"
+      :key="heroDetail.id"
+      v-if="heroDetail.id"
+      )
     v-pagination(
       v-model="page"
       :length="lastPage"
@@ -37,20 +42,26 @@ export default {
   data: () => ({
     heroes: [],
     page: 1,
-    offset: 0,
     limit: 12,
     lastPage: 1,
     loading: false,
     heroDetail: {},
     showDetail: false,
   }),
+  computed: {
+    offset() {
+      return this.limit * (this.page - 1);
+    },
+  },
   created() {
+    this.page = parseInt(this.$route.query.page, 10);
     this.listHeroes();
   },
   methods: {
-    listHeroes(page = 1) {
+    listHeroes() {
       this.loading = true;
-      this.setOffSet(page);
+      this.$vuetify.goTo(0);
+      this.$router.push({ name: this.$route.name, query: { page: this.page } });
       HeroesService.list(this.offset, this.limit)
         .then((data) => {
           this.setResponseData(data);
@@ -59,12 +70,8 @@ export default {
           this.loading = false;
         });
     },
-    setOffSet(page) {
-      this.offset = this.limit * (page - 1);
-    },
     setResponseData(data) {
-      const { offset, limit, results } = data;
-      this.offset = offset;
+      const { limit, results } = data;
       this.limit = limit;
       this.heroes = results;
     },
