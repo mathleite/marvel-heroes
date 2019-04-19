@@ -60,10 +60,10 @@ export default {
   methods: {
     listHeroes() {
       this.loading = true;
-      this.$vuetify.goTo(0);
       this.$router.push({ name: this.$route.name, query: { page: this.page } });
       HeroesService.list(this.offset, this.limit)
         .then((data) => {
+          this.$vuetify.goTo(0);
           this.setResponseData(data);
           this.setTotalPages(data);
           this.setCurrentPage();

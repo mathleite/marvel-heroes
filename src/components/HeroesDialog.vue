@@ -4,11 +4,14 @@
       v-toolbar(flat)
         v-toolbar-title {{ hero.name }}
         v-spacer
-        v-btn(icon)
+        v-btn(
+          icon
+          @click="closeDialog"
+        )
           v-icon close
       v-divider
       v-card-text
-        v-card(color="blue-grey darken-3" dark)
+        v-card
           v-card-text
             v-layout(column align-center)
               v-avatar.card__avatar(size="200")
