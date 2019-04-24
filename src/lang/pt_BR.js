@@ -9,6 +9,7 @@ module.exports = {
       hero_comics_abbreviation: 'HQs',
       no_description: 'This Hero has no description',
       no_comics: 'This Hero has no comics',
+      search: 'Search by initial letter',
     },
     info: {
       application: 'A project created with the intention of showing the resources developed during the mentoring.',

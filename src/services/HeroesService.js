@@ -3,11 +3,12 @@ import http from './HttpService';
 const CHARACTERS_ROUTE = 'characters';
 
 export default {
-  list(offset, limit) {
+  list(offset, limit, nameStartsWith) {
     return http.get(CHARACTERS_ROUTE, {
       params: {
         offset,
         limit,
+        nameStartsWith,
       },
     }).then(response => response.data.data);
   },

@@ -1,5 +1,7 @@
 <template lang="pug">
   .heroes-grid
+    alphabet-pagination(v-model="nameStartsWith" @eventValue="eventValue")
+    v-progress-linear(v-show="loading" :indeterminate="true")
     v-container(grid-list-lg)
       v-layout(row align-start wrap)
         v-flex(
@@ -20,24 +22,28 @@
       :key="heroDetail.id"
       v-if="heroDetail.id"
       )
-    v-pagination(
-      v-model="page"
-      :length="lastPage"
-      :disabled="loading"
-      @input="listHeroes"
-    )
+    .paginationLayout
+      v-pagination(
+        v-model="page"
+        circle
+        :length="lastPage"
+        :disabled="loading"
+        @input="listHeroes"
+      )
 </template>
 
 <script>
 import HeroesService from '@/services/HeroesService';
 import HeroesDialog from '@/components/HeroesDialog.vue';
 import HeroItem from './HeroItem.vue';
+import AlphabetPagination from './AlphabetPagination.vue';
 
 export default {
   name: 'HeroesGrid',
   components: {
     HeroItem,
     HeroesDialog,
+    AlphabetPagination,
   },
   data: () => ({
     heroes: [],
@@ -47,6 +53,7 @@ export default {
     loading: false,
     heroDetail: {},
     showDetail: false,
+    nameStartsWith: 'A',
   }),
   computed: {
     offset() {
@@ -54,14 +61,18 @@ export default {
     },
   },
   created() {
-    this.page = parseInt(this.$route.query.page, 10);
     this.listHeroes();
   },
   methods: {
+    eventValue(value) {
+      this.page = 1;
+      this.nameStartsWith = value;
+      this.listHeroes();
+    },
     listHeroes() {
       this.loading = true;
       this.$router.push({ name: this.$route.name, query: { page: this.page } });
-      HeroesService.list(this.offset, this.limit)
+      HeroesService.list(this.offset, this.limit, this.nameStartsWith)
         .then((data) => {
           this.$vuetify.goTo(0);
           this.setResponseData(data);
@@ -92,3 +103,9 @@ export default {
   },
 };
 </script>
+
+<style lang="sass">
+  .paginationLayout
+    display: flex
+    justify-content: center
+</style>

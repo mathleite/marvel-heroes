@@ -1,14 +1,13 @@
 <template lang="pug">
-  v-card
-    v-card-text
-      div.o-container
-        the-title-text(:title="$t('app.name')")
-        div.o-flex-container
-          p.c-info {{ $t('info.application') }}
-          the-button(
-            :text="$t('button.go_to_grid')"
-            route-name="heroes"
-          )
+  v-flex(xs12 sm8 lg12)
+    v-card(dark)
+      the-title-text(:title="$t('app.heroes_grid')")
+      p.c-info {{ $t('info.application') }}
+      .button
+        the-button(
+          :text="$t('button.go_to_grid')"
+          route-name="heroes"
+        )
 </template>
 
 <script>
@@ -21,26 +20,15 @@ export default {
     TheButton,
     TheTitleText,
   },
+  data: () => ({
+    switchTheme: false,
+  }),
 };
 </script>
 
 <style lang="sass" scoped>
-  .o-container
-    display: flex
-
-    &:first-child
-      flex-direction: column
-
-    .o-flex-container
-      display: flex
-      justify-content: center
-      align-items: center
-      flex-direction: column
-
-      .c-info
-        text-align: center
-        width: 400px
-        font-size: 20px
-        margin-top: 50px
-        color: $color-red
+  .c-info
+    text-align: center
+    font-size: 16px
+    text-transform: uppercase
 </style>

@@ -1,5 +1,8 @@
 <template lang="pug">
-  v-btn.o-btn-back(:to="{ name: routeName }") {{ text }}
+  .right
+    v-btn.o-btn-back(
+      :to="{ name: routeName }"
+    ) {{ text }}
 </template>
 
 <script>

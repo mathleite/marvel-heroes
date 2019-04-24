@@ -1,5 +1,6 @@
 <template lang="pug">
-  h1.o-title-application {{ title }}
+  v-card-title(primary-title)
+    h1.o-title-application.headline {{ title }}
 </template>
 
 <script>
@@ -19,7 +20,6 @@ export default {
 
   .o-title-application
     text-align: center
-    border-bottom: 3px solid $color-black
     height: 55px
     font-size: 50px
     text-transform: uppercase

@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-card
+  v-card(dark)
     v-card-text
       //input(type="file" ref="input_file" id="teste" style="display: none;")
       //v-btn(
@@ -15,7 +15,7 @@
       div.container
         the-title-text(:title="$t('app.heroes_grid')")
         heroes-grid
-        div.button-rigth
+        .button
           the-button(
             :text="$t('button.back')"
             route-name="home"
@@ -46,9 +46,4 @@ export default {
   .container
     display: flex
     flex-direction: column
-    .button-rigth
-      font-weight: bold
-      display: flex
-      align-items: center
-      justify-content: flex-end
 </style>

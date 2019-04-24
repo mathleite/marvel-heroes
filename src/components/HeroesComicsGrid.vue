@@ -1,16 +1,16 @@
 <template lang="pug">
   v-container(grid-list-sm)
     v-card-text(
-      v-show="heroHasComic"
+      v-show="heroHasComics"
       class="text-xs-center"
       )
       span {{ $t('app.no_comics') }}
     v-progress-linear(v-show="loading" :indeterminate="true")
     v-layout(row align-end wrap)
       v-flex(
-        xs12
-        sm6
-        lg3
+        xs8
+        sm4
+        lg2
         v-for="comic in comics"
         :key="comic.id"
         )
@@ -30,17 +30,13 @@ export default {
     hero: Object,
   },
   data: () => ({
+    heroHasComics: false,
     comics: [],
     displayAlert: false,
     messageError: '',
     loading: false,
     hasComics: false,
   }),
-  computed: {
-    heroHasComic() {
-      return this.comics.length === 0;
-    },
-  },
   created() {
     this.fetchHeroComics();
   },
@@ -50,7 +46,7 @@ export default {
       this.hasComics = false;
       HeroesService.fetchHeroComics(this.hero.id)
         .then((response) => {
-          this.comics = response;
+          this.setComics(response);
           this.loading = false;
           this.hasComics = true;
         })
@@ -58,6 +54,14 @@ export default {
           const { status } = error.response;
           throw new Error(status);
         });
+    },
+    setComics(response) {
+      if (response.length) {
+        this.comics = response;
+        return true;
+      }
+      this.heroHasComics = !this.heroHasComics;
+      return true;
     },
   },
 };
