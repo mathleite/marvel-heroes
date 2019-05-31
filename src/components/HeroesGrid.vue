@@ -6,7 +6,7 @@
           v-model="heroName"
           :label="'Search'"
           prepend-inner-icon="search"
-          @keyup="listHeroes"
+          @input="searchHeroes"
         )
     //alphabet-pagination(v-model="nameStartsWith" @eventValue="eventValue")
     v-container(grid-list-lg)
@@ -44,6 +44,7 @@ import HeroesService from '@/services/HeroesService';
 import HeroesDialog from '@/components/HeroesDialog.vue';
 import HeroItem from './HeroItem.vue';
 import AlphabetPagination from './AlphabetPagination.vue';
+import { setTimeout, clearTimeout } from 'timers';
 
 export default {
   name: 'HeroesGrid',
@@ -61,6 +62,7 @@ export default {
     heroDetail: {},
     showDetail: false,
     heroName: '',
+    timeout: null,
   }),
   computed: {
     offset() {
@@ -70,6 +72,9 @@ export default {
   created() {
     this.listHeroes();
   },
+  beforeDestroy() {
+    clearTimeout(this.timeout);
+  },
   methods: {
     eventValue(value) {
       this.page = 1;
@@ -77,7 +82,6 @@ export default {
       this.listHeroes();
     },
     listHeroes() {
-      console.log(this.heroName);
       this.loading = true;
       this.$router.push({ name: this.$route.name, query: { page: this.page } });
       HeroesService.list(this.offset, this.limit, this.heroName)
@@ -88,6 +92,13 @@ export default {
           this.setCurrentPage();
           this.loading = false;
         });
+    },
+    searchHeroes() {
+      clearTimeout(this.timeout);
+      this.timeout = setTimeout(() => {
+        this.page = 1
+        this.listHeroes();
+      }, 500);
     },
     setResponseData(data) {
       const { limit, results } = data;

@@ -4,13 +4,18 @@ const CHARACTERS_ROUTE = 'characters';
 
 export default {
   list(offset, limit, nameStartsWith) {
-    return http.get(CHARACTERS_ROUTE, {
-      params: {
-        offset,
-        limit,
+    let params = {
+      offset,
+      limit,
+    };
+
+    if (nameStartsWith) {
+      params = {
+        ...params,
         nameStartsWith,
-      },
-    }).then(response => response.data.data);
+      }
+    }
+    return http.get(CHARACTERS_ROUTE, { params }).then(response => response.data.data);
   },
   fetchHeroComics(heroId) {
     const COMICS_ROUTE = `${CHARACTERS_ROUTE}/${heroId}/comics`;
