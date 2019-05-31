@@ -1,5 +1,5 @@
 <template lang="pug">
-  v-card(dark)
+  v-card()
     v-card-text
       //input(type="file" ref="input_file" id="teste" style="display: none;")
       //v-btn(
@@ -13,7 +13,7 @@
         )
         v-icon attach_file
       div.container
-        the-title-text(:title="$t('app.heroes_grid')")
+        the-title-text(:title="$t('app.heroes_grid')").justify-center
         heroes-grid
         .button
           the-button(
@@ -46,4 +46,7 @@ export default {
   .container
     display: flex
     flex-direction: column
+  .justify-center
+    display: flex
+    justify-content: center
 </style>

@@ -1,7 +1,7 @@
 <template lang="pug">
-  v-flex(xs12 sm8 lg12)
-    v-card(dark)
-      the-title-text(:title="$t('app.heroes_grid')")
+  v-flex(xs12 sm6 lg12)
+    v-card
+      the-title-text(:title="$t('app.heroes_grid')").justify-center
       p.c-info {{ $t('info.application') }}
       .button
         the-button(
@@ -31,4 +31,7 @@ export default {
     text-align: center
     font-size: 16px
     text-transform: uppercase
+  .justify-center
+    display: flex
+    justify-content: center
 </style>

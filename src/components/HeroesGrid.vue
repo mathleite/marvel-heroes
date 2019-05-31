@@ -1,7 +1,14 @@
 <template lang="pug">
   .heroes-grid
-    alphabet-pagination(v-model="nameStartsWith" @eventValue="eventValue")
-    v-progress-linear(v-show="loading" :indeterminate="true")
+    v-form
+      v-flex(xs12 sm6 lg3)
+        v-text-field(
+          v-model="heroName"
+          :label="'Search'"
+          prepend-inner-icon="search"
+          @keyup="listHeroes"
+        )
+    //alphabet-pagination(v-model="nameStartsWith" @eventValue="eventValue")
     v-container(grid-list-lg)
       v-layout(row align-start wrap)
         v-flex(
@@ -53,7 +60,7 @@ export default {
     loading: false,
     heroDetail: {},
     showDetail: false,
-    nameStartsWith: 'A',
+    heroName: '',
   }),
   computed: {
     offset() {
@@ -70,9 +77,10 @@ export default {
       this.listHeroes();
     },
     listHeroes() {
+      console.log(this.heroName);
       this.loading = true;
       this.$router.push({ name: this.$route.name, query: { page: this.page } });
-      HeroesService.list(this.offset, this.limit, this.nameStartsWith)
+      HeroesService.list(this.offset, this.limit, this.heroName)
         .then((data) => {
           this.$vuetify.goTo(0);
           this.setResponseData(data);

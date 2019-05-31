@@ -19,7 +19,7 @@ export default {
   @import '../sass/variables'
 
   .o-title-application
-    text-align: center
+    color: red
     height: 55px
     font-size: 50px
     text-transform: uppercase

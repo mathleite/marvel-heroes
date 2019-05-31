@@ -1,6 +1,6 @@
 <template lang="pug">
   v-dialog(v-model="showDialog" scrollable)
-    v-card.card(dark class="text-xs-center")
+    v-card.card(class="text-xs-center")
       v-toolbar(flat)
         v-toolbar-title {{ hero.name }}
         v-spacer
