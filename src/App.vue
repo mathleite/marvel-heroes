@@ -21,7 +21,7 @@ export default {
     font-family: monospace
 
     &__background
-      background: url('./assets/images/adam-warlock.jpg') no-repeat center center fixed
+      background: url('./assets/images/marvel_heroes.jpg') no-repeat center center fixed
       background-size: cover
       filter: grayscale(20%)
       position: absolute
